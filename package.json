@@ -2,10 +2,11 @@
   "name": "riyazat-portfolio",
   "version": "1.0.0",
   "description": "Premium developer portfolio for Riyazat Jaffar Kazarani",
-  "main": "index.html",
+  "main": "public/index.html",
   "scripts": {
-    "dev": "npx -y serve .",
-    "start": "npx -y serve ."
+    "dev": "npx -y serve public",
+    "start": "npx -y serve public",
+    "deploy": "npx wrangler deploy"
   },
   "keywords": [
     "portfolio",
