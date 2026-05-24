@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Riyazat Jaffar Kazarani | 3D Salesforce & UI/UX Developer Portfolio</title>
+  <meta name="description" content="Immersive 3D portfolio of Riyazat Jaffar Kazarani, a multidisciplinary Salesforce Developer (LWC, Apex), UI/UX Designer, and Web Developer with 4+ years of experience bridging design and logical execution.">
+  <meta name="keywords" content="Riyazat Jaffar Kazarani, Salesforce Developer, UI/UX Designer, LWC Developer, Apex, Web Developer Hyderabad, Figma Designer, Graphic Designer, Salesforce LWC">
+  <meta name="author" content="Riyazat Jaffar Kazarani">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Riyazat Jaffar Kazarani | 3D Developer Portfolio">
+  <meta property="og:description" content="Explore Riyazat's interactive 3D showcase bridging design and engineering.">
+  <meta property="og:image" content="assets/og-image.png">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Riyazat Jaffar Kazarani | 3D Developer Portfolio">
+  <meta property="twitter:description" content="Explore Riyazat's interactive 3D showcase bridging design and engineering.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  
+  <!-- Google Fonts (Outfit & JetBrains Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Early Theme Checker Script (Avoid FOUC) -->
+  <meta name="color-scheme" content="dark light">
+  <script>
+    {
+      const colorScheme = localStorage.getItem("color-scheme");
+      if (colorScheme) {
+        document.querySelector('meta[name="color-scheme"]').content = colorScheme;
+        document.documentElement.setAttribute('data-theme', colorScheme);
+      } else {
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.setAttribute('data-theme', systemTheme);
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Custom Spotlight Glow -->
+  <div class="background-radial-glow" id="radial-glow"></div>
+  <div class="background-grid-overlay"></div>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-bar" id="scroll-progress"></div>
+
+  <!-- Header & Navigation -->
+  <header class="header sticky-nav" id="main-header">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" aria-label="Riyazat Jaffar Kazarani Home">
+        <span class="logo-symbol">&lt;/&gt;</span>
+        <span class="logo-text">Riyazat<span class="text-highlight">.k</span></span>
+      </a>
+      
+      <nav class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li><a href="#hero" class="nav-link active" data-index="0">Home</a></li>
+          <li><a href="#about" class="nav-link" data-index="1">About</a></li>
+          <li><a href="#skills" class="nav-link" data-index="2">Skills</a></li>
+          <li><a href="#experience" class="nav-link" data-index="3">Experience</a></li>
+          <li><a href="#projects" class="nav-link" data-index="4">Projects</a></li>
+          <li><a href="#contact" class="nav-link" data-index="5">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark and light theme" title="Toggle theme">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+        
+        <button class="mobile-menu-toggle" id="menu-toggle" aria-label="Toggle mobile menu" aria-controls="nav-menu" aria-expanded="false">
+          <span class="bar bar-top"></span>
+          <span class="bar bar-middle"></span>
+          <span class="bar bar-bottom"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       SCROLL DRIVER TRACKERS (Capture Scroll Values)
+       ========================================================================== -->
+  <div id="scroll-drivers">
+    <div class="scroll-tracker" id="track-hero"></div>
+    <div class="scroll-tracker" id="track-about"></div>
+    <div class="scroll-tracker" id="track-skills"></div>
+    <div class="scroll-tracker" id="track-experience"></div>
+    <div class="scroll-tracker" id="track-projects"></div>
+    <div class="scroll-tracker" id="track-contact"></div>
+  </div>
+
+  <!-- ==========================================================================
+       3D PERSPECTIVE VIEWPORT (Holds Visual Slides)
+       ========================================================================== -->
+  <div class="viewport-3d">
+    <div id="animated-content" class="tilt-container">
+      
+      <!-- HERO SCENE -->
+      <section id="hero" class="scene-section active">
+        <div class="container scene-container hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="badge-dot"></span>
+              <span class="badge-text">Available for Senior Roles & Freelance</span>
+            </div>
+            
+            <h1 class="hero-title">
+              Bridging Design & Logic to Build <span class="gradient-text">Scalable Solutions</span>
+            </h1>
+            
+            <div class="hero-roles-container">
+              <p class="hero-lead">I am a</p>
+              <div class="dynamic-roles-wrapper">
+                <span class="dynamic-role active" data-index="0">Salesforce Developer</span>
+                <span class="dynamic-role" data-index="1">UI/UX Designer</span>
+                <span class="dynamic-role" data-index="2">Web Developer</span>
+                <span class="dynamic-role" data-index="3">Graphic Designer</span>
+              </div>
+            </div>
+            
+            <p class="hero-description">
+              Versatile developer and designer with 4+ years of professional experience. Specializing in Salesforce Lightning Web Components (LWC), Apex, and responsive web development, combined with an end-to-end design background in Figma, Adobe XD, and graphic suites.
+            </p>
+            
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary" onclick="window.scrollTo({top: document.getElementById('track-contact').offsetTop, behavior: 'smooth'}); return false;">
+                Let's Collaborate
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+              <button id="download-resume-btn" class="btn btn-secondary">
+                Download CV
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              </button>
+            </div>
+            
+            <div class="hero-socials">
+              <a href="https://linkedin.com/in/riyazat-kazarani" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Profile">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                <span>LinkedIn</span>
+              </a>
+              <a href="mailto:rjkriyaz@gmail.com" class="social-link" aria-label="Send Email">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <span>rjkriyaz@gmail.com</span>
+              </a>
+              <a href="tel:+919949206700" class="social-link" aria-label="Call Phone">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>+91 9949206700</span>
+              </a>
+            </div>
+          </div>
+          
+          <div class="hero-visual">
+            <div class="visual-card-wrapper">
+              <div class="visual-card main-card">
+                <div class="card-header">
+                  <span class="card-dot red"></span>
+                  <span class="card-dot yellow"></span>
+                  <span class="card-dot green"></span>
+                  <span class="card-title">riyazat.profile</span>
+                </div>
+                <div class="card-body">
+                  <pre><code><span class="token keyword">const</span> developer = {
+  name: <span class="token string">"Riyazat Jaffar"</span>,
+  experience: <span class="token number">4</span>, <span class="token comment">// Years+</span>
+  lwcApexExpertise: <span class="token boolean">true</span>,
+  bridgeDesignAndCode: <span class="token boolean">true</span>
+};
+
+<span class="token comment">// Delivering performance</span>
+developer.optimizeFor(<span class="token string">"WCAG"</span>)
+         .buildWith(<span class="token string">"SLDS"</span>)
+         .integrateAPIs();</code></pre>
+                </div>
+              </div>
+              
+              <div class="visual-card float-card card-design">
+                <div class="float-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="float-info">
+                  <h4>WCAG Compliant</h4>
+                  <p>Accessible UI/UX Design</p>
+                </div>
+              </div>
+
+              <div class="visual-card float-card card-salesforce">
+                <div class="float-icon icon-blue">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 2.5-8.24A6 6 0 0 0 12 6a5.5 5.5 0 0 0-4.75 8.24A4.5 4.5 0 0 0 7.5 19Z"/></svg>
+                </div>
+                <div class="float-info">
+                  <h4>Salesforce & LWC</h4>
+                  <p>Robust Apex & Forms</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT SCENE -->
+      <section id="about" class="scene-section">
+        <div class="container scene-container">
+          <div class="section-header">
+            <span class="section-tag font-mono">01 // PROFILE</span>
+            <h2 class="section-title">The Multidisciplinary Bridge</h2>
+          </div>
+          
+          <div class="about-grid">
+            <div class="about-text">
+              <p class="lead-text">
+                I am a creative and technically versatile professional with <strong>4+ years of experience</strong> spanning Photography, Graphic Design, UI/UX Design, Web Development, and Salesforce Development.
+              </p>
+              <p>
+                Currently, I specialize as a **Salesforce Developer** with strong expertise in **Lightning Web Components (LWC)**, **Apex**, and Salesforce platform integrations. I am known for bridging design sensibility with robust technical development to deliver performant, user-centric solutions. 
+              </p>
+              <p>
+                My track record includes building scalable support dashboards, dynamic multi-step forms, interactive modal architectures, and custom navigation systems that enhance operational efficiency while adhering to strict UI/UX guidelines and SLDS compliance.
+              </p>
+            </div>
+            
+            <div class="about-stats-grid">
+              <div class="stat-card">
+                <span class="stat-number">4+</span>
+                <span class="stat-label">Years Cross-Disciplinary Experience</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">2+</span>
+                <span class="stat-label">Years Specialized Salesforce LWC & Apex</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">2</span>
+                <span class="stat-label">Core Roles at TesseractApps (Salesforce & UI/UX)</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Pixel-Perfect Responsive Execution</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS SCENE -->
+      <section id="skills" class="scene-section">
+        <div class="container scene-container">
+          <div class="section-header">
+            <span class="section-tag font-mono">02 // CAPABILITIES</span>
+            <h2 class="section-title">Technical Tech Stack & Toolbox</h2>
+          </div>
+
+          <div class="skills-tabs">
+            <button class="skills-tab-btn active" data-target="salesforce">Salesforce Developer</button>
+            <button class="skills-tab-btn" data-target="webdev">Web Development</button>
+            <button class="skills-tab-btn" data-target="uiux">UI/UX Design</button>
+            <button class="skills-tab-btn" data-target="graphics">Graphic Design & Photo</button>
+          </div>
+
+          <div class="skills-display-container">
+            <!-- Salesforce Skills -->
+            <div class="skills-panel active" id="skills-salesforce">
+              <h3 class="panel-title">Salesforce Architecture & Customization</h3>
+              <p class="panel-desc">Building scalable, secure components, integrating REST/SOAP APIs, and automating enterprise business logic.</p>
+              <div class="skills-grid">
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg></div>
+                  <h4>Lightning Web Components (LWC)</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/><path d="M12 12h10M18 8l4 4-4 4"/></svg></div>
+                  <h4>Apex Classes & Triggers</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="8" x="3" y="3" rx="2"/><rect width="8" height="8" x="13" y="3" rx="2"/><rect width="8" height="8" x="3" y="13" rx="2"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg></div>
+                  <h4>Apex Scheduler & Jobs</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg></div>
+                  <h4>Lightning Data Service (LDS)</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 88%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3Z"/></svg></div>
+                  <h4>SOQL & SOSL Queries</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 92%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/></svg></div>
+                  <h4>Salesforce Flows & Process Builder</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+                  <h4>REST / SOAP Integration</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></div>
+                  <h4>SLDS, Visualforce & VS Code</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+                </div>
+              </div>
+              
+              <div class="skills-footer-tags">
+                <span class="tag-title font-mono">Environment:</span>
+                <span class="skill-tag">VS Code with Salesforce Extensions</span>
+                <span class="skill-tag">Developer Console</span>
+                <span class="skill-tag">Change Sets</span>
+              </div>
+            </div>
+
+            <!-- Web Dev Skills -->
+            <div class="skills-panel" id="skills-webdev">
+              <h3 class="panel-title">Frontend Engineering & API Integrations</h3>
+              <p class="panel-desc">Writing standards-compliant code with a focus on performant structure, accessibility, and modern interactive states.</p>
+              <div class="skills-grid">
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                  <h4>HTML5 (Semantic Web)</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                  <h4>CSS3 (Nesting, Grid, Custom Properties)</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 92%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3Z"/></svg></div>
+                  <h4>JavaScript (ES6+)</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2"/><path d="M12 12h10M18 8l4 4-4 4"/></svg></div>
+                  <h4>TypeScript</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/></svg></div>
+                  <h4>REST API Integration</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 88%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg></div>
+                  <h4>JSON Handling & Formats</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- UI/UX Design Skills -->
+            <div class="skills-panel" id="skills-uiux">
+              <h3 class="panel-title">User Experience Design & Prototyping</h3>
+              <p class="panel-desc">Designing user journeys and dynamic mockups with focus on cross-browser accessibility guidelines and interface heuristics.</p>
+              <div class="skills-grid">
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg></div>
+                  <h4>Figma</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 17V7h4a3 3 0 0 1 3 3v0a3 3 0 0 1-3 3H9"/></svg></div>
+                  <h4>Adobe XD & Sketch</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                  <h4>Responsive Design</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                  <h4>WCAG Accessibility</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M21 12H3"/><path d="M12 3v18"/></svg></div>
+                  <h4>Wireframing & Prototyping</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 92%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><path d="M6 9v12"/></svg></div>
+                  <h4>User Journey Mapping</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 88%;"></div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Graphic/Photo Skills -->
+            <div class="skills-panel" id="skills-graphics">
+              <h3 class="panel-title">Visual Communication & Brand Development</h3>
+              <p class="panel-desc">Drafting scalable vector graphics, post-production photo retouching, and cohesive design layouts.</p>
+              <div class="skills-grid">
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                  <h4>Adobe Illustrator & Photoshop</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 92%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+                  <h4>Lightroom & Photo Editing</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 88%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg></div>
+                  <h4>Brand Identity Systems</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M21 12H3"/><path d="M12 3v18"/></svg></div>
+                  <h4>Composition & Visuals</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-card">
+                  <div class="skill-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg></div>
+                  <h4>Canva & Asset Production</h4>
+                  <div class="skill-progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE SCENE -->
+      <section id="experience" class="scene-section">
+        <div class="container scene-container scroll-container-y">
+          <div class="section-header">
+            <span class="section-tag font-mono">03 // HISTORY</span>
+            <h2 class="section-title">Professional Journey</h2>
+          </div>
+
+          <div class="timeline-container">
+            <!-- Timeline Item 1 -->
+            <div class="timeline-item timeline-interactive active" data-exp="tesseract-sf">
+              <div class="timeline-badge badge-primary">2024</div>
+              <div class="timeline-card">
+                <div class="timeline-header">
+                  <div class="title-group">
+                    <h3 class="role-title">Salesforce Developer</h3>
+                    <h4 class="company-name">TesseractApps <span class="badge-status">Present</span></h4>
+                  </div>
+                  <span class="timeline-date font-mono">11/2024 - Present</span>
+                </div>
+                <div class="timeline-location font-mono">Hyderabad, India</div>
+                <div class="timeline-body">
+                  <ul class="bullet-points">
+                    <li>Developed and maintained **Lightning Web Components (LWC)** for enterprise Salesforce applications, focusing on performance, reusability, and **SLDS compliance**.</li>
+                    <li>Built multi-step dynamic forms with complex validation logic and real-time toast notification systems to enhance user experience.</li>
+                    <li>Designed and implemented custom dashboards, modals, and navigation experiences used by support teams managing **NDIS participants**.</li>
+                    <li>Integrated Salesforce REST APIs with third-party systems and authored **Apex classes, triggers, and scheduled jobs** (e.g., Apex Scheduler running jobs every 2 hours).</li>
+                    <li>Collaborated with UX and admin teams to ensure seamless desktop and mobile experiences using responsive design principles.</li>
+                    <li>Created **Visualforce pages with Apex controllers** for staff shift and reporting modules.</li>
+                    <li>Handled data formatting, error handling, and CSV generation features within LWC components.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline Item 2 -->
+            <div class="timeline-item timeline-interactive" data-exp="tesseract-ux">
+              <div class="timeline-badge badge-secondary">2024</div>
+              <div class="timeline-card">
+                <div class="timeline-header">
+                  <div class="title-group">
+                    <h3 class="role-title">UI/UX Designer</h3>
+                    <h4 class="company-name">TesseractApps</h4>
+                  </div>
+                  <span class="timeline-date font-mono">11/2024 - Present</span>
+                </div>
+                <div class="timeline-location font-mono">Hyderabad, India</div>
+                <div class="timeline-body">
+                  <ul class="bullet-points">
+                    <li>Designed end-to-end user experiences for web and mobile applications using Figma and Adobe XD.</li>
+                    <li>Created wireframes, prototypes, and user journey maps for client-facing products.</li>
+                    <li>Conducted usability testing and incorporated feedback to refine design solutions.</li>
+                    <li>Maintained consistent design systems and component libraries across projects.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline Item 3 -->
+            <div class="timeline-item timeline-interactive" data-exp="freelance-web">
+              <div class="timeline-badge badge-accent">Freelance</div>
+              <div class="timeline-card">
+                <div class="timeline-header">
+                  <div class="title-group">
+                    <h3 class="role-title">Freelance Web Developer</h3>
+                    <h4 class="company-name">Self-Employed</h4>
+                  </div>
+                  <span class="timeline-date font-mono">Flexible</span>
+                </div>
+                <div class="timeline-body">
+                  <ul class="bullet-points">
+                    <li>Developed responsive, accessible web applications using HTML5, CSS3, JavaScript, and modern frameworks.</li>
+                    <li>Built and maintained RESTful API integrations and dynamic UI components.</li>
+                    <li>Collaborated with UI/UX teams to translate design mockups into pixel-perfect, functional frontends.</li>
+                    <li>Optimized web performance and cross-browser compatibility for client projects.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline Item 4 -->
+            <div class="timeline-item timeline-interactive" data-exp="redantz">
+              <div class="timeline-badge badge-neutral">2021</div>
+              <div class="timeline-card">
+                <div class="timeline-header">
+                  <div class="title-group">
+                    <h3 class="role-title">Designer</h3>
+                    <h4 class="company-name">RedAntz</h4>
+                  </div>
+                  <span class="timeline-date font-mono">02/2021 - 11/2024</span>
+                </div>
+                <div class="timeline-body">
+                  <ul class="bullet-points">
+                    <li>Created brand identities, marketing materials, social media graphics, and print collateral for clients across multiple industries.</li>
+                    <li>Designed logos, brochures, banners, and digital assets using Adobe Illustrator and Photoshop.</li>
+                    <li>Collaborated with marketing teams to deliver visually compelling campaigns.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline Item 5 -->
+            <div class="timeline-item timeline-interactive" data-exp="photriya">
+              <div class="timeline-badge badge-neutral">2021</div>
+              <div class="timeline-card">
+                <div class="timeline-header">
+                  <div class="title-group">
+                    <h3 class="role-title">Graphic Designer</h3>
+                    <h4 class="company-name">Photriya</h4>
+                  </div>
+                  <span class="timeline-date font-mono">11/2021 - 01/2023</span>
+                </div>
+                <div class="timeline-body">
+                  <ul class="bullet-points">
+                    <li>Created brand identities, marketing materials, social media graphics, and print collateral for clients across multiple industries.</li>
+                    <li>Designed logos, brochures, banners, and digital assets using Adobe Illustrator and Photoshop.</li>
+                    <li>Collaborated with marketing teams to deliver visually compelling campaigns.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline Item 6 -->
+            <div class="timeline-item timeline-interactive" data-exp="munna-vaddi">
+              <div class="timeline-badge badge-neutral">2020</div>
+              <div class="timeline-card">
+                <div class="timeline-header">
+                  <div class="title-group">
+                    <h3 class="role-title">Photographer</h3>
+                    <h4 class="company-name">Munna Vaddi Photography</h4>
+                  </div>
+                  <span class="timeline-date font-mono">12/2020 - 11/2021</span>
+                </div>
+                <div class="timeline-body">
+                  <ul class="bullet-points">
+                    <li>Delivered professional photography for portraits, events, products, and commercial projects.</li>
+                    <li>Handled complete post-production workflows including retouching and color grading using Lightroom and Photoshop.</li>
+                    <li>Built and maintained a portfolio showcasing diverse photography styles and client work.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS SCENE -->
+      <section id="projects" class="scene-section">
+        <div class="container scene-container">
+          <div class="section-header">
+            <span class="section-tag font-mono">04 // PORTFOLIO</span>
+            <h2 class="section-title">Selected Projects</h2>
+          </div>
+
+          <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="salesforce">Salesforce</button>
+            <button class="filter-btn" data-filter="web">Web Dev</button>
+            <button class="filter-btn" data-filter="design">Visual Design</button>
+          </div>
+
+          <div class="projects-grid-container">
+            <div class="projects-grid">
+              <!-- Project 1 (Salesforce LWC) -->
+              <article class="project-card" data-category="salesforce">
+                <div class="project-inner">
+                  <div class="project-tag-overlay">Salesforce LWC</div>
+                  <div class="project-content">
+                    <h3 class="project-title">NDIS Participant Management System</h3>
+                    <div class="project-meta-tags">
+                      <span class="tag-tech">LWC</span>
+                      <span class="tag-tech">Apex</span>
+                      <span class="tag-tech">SLDS</span>
+                      <span class="tag-tech">Visualforce</span>
+                    </div>
+                    
+                    <div class="project-details">
+                      <div class="detail-block">
+                        <span class="detail-label">Challenge</span>
+                        <p class="detail-value">Support teams needed a secure, high-performance portal to register and track NDIS participants with conditional field routing and multi-tier address validation.</p>
+                      </div>
+                      <div class="detail-block">
+                        <span class="detail-label">Solution</span>
+                        <p class="detail-value">Built a full-featured participant registration system on Salesforce. Created LWC components with complex validation and real-time custom toast notifications.</p>
+                      </div>
+                      <div class="detail-block">
+                        <span class="detail-label">Outcome</span>
+                        <p class="detail-value">Developed custom dashboards, modifiable shift checklists, and staff shift report Visualforce pages with dynamic data formatting and high-efficiency loading.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Project 2 (Salesforce LWC) -->
+              <article class="project-card" data-category="salesforce">
+                <div class="project-inner">
+                  <div class="project-tag-overlay">Salesforce LWC</div>
+                  <div class="project-content">
+                    <h3 class="project-title">Staff Shift Scheduling Dashboard</h3>
+                    <div class="project-meta-tags">
+                      <span class="tag-tech">LWC</span>
+                      <span class="tag-tech">Apex</span>
+                      <span class="tag-tech">Scheduler</span>
+                      <span class="tag-tech">CSV Engine</span>
+                    </div>
+                    
+                    <div class="project-details">
+                      <div class="detail-block">
+                        <span class="detail-label">Challenge</span>
+                        <p class="detail-value">Support managers required real-time scheduling coordination with CSV reporting capabilities, shift durations, and specific timezone/date outputs.</p>
+                      </div>
+                      <div class="detail-block">
+                        <span class="detail-label">Solution</span>
+                        <p class="detail-value">Created an interactive weekly dashboard with real-time Apex query triggers. Integrated CSV generation with dynamic formatting capabilities (e.g., date formats as dd/MM/yyyy).</p>
+                      </div>
+                      <div class="detail-block">
+                        <span class="detail-label">Outcome</span>
+                        <p class="detail-value">Authorized secure real-time shifts rendering directly within Salesforce, reducing shift management overhead and sync errors for supporting teams.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Project 3 (Web Development) -->
+              <article class="project-card" data-category="web">
+                <div class="project-inner">
+                  <div class="project-tag-overlay">Web Development</div>
+                  <div class="project-content">
+                    <h3 class="project-title">Custom Web Application</h3>
+                    <div class="project-meta-tags">
+                      <span class="tag-tech">HTML5/CSS3</span>
+                      <span class="tag-tech">JavaScript (ES6+)</span>
+                      <span class="tag-tech">APIs</span>
+                      <span class="tag-tech">RBAC</span>
+                    </div>
+                    
+                    <div class="project-details">
+                      <div class="detail-block">
+                        <span class="detail-label">Challenge</span>
+                        <p class="detail-value">Developing a robust system with secure data flows, modular components, and distinct capabilities based on user permission nodes.</p>
+                      </div>
+                      <div class="detail-block">
+                        <span class="detail-label">Solution</span>
+                        <p class="detail-value">Engineered a highly responsive web application featuring role-based access controls (RBAC), custom client-side router, and optimized fetch modules communicating with REST APIs.</p>
+                      </div>
+                      <div class="detail-block">
+                        <span class="detail-label">Outcome</span>
+                        <p class="detail-value">Delivered a performant, accessible UI/UX translating complex layouts into a clean interface with solid security practices.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Project 4 (Graphic Design) -->
+              <article class="project-card" data-category="design">
+                <div class="project-inner">
+                  <div class="project-tag-overlay">Graphic Design</div>
+                  <div class="project-content">
+                    <h3 class="project-title">Brand Identity & Visual Design</h3>
+                    <div class="project-meta-tags">
+                      <span class="tag-tech">Illustrator</span>
+                      <span class="tag-tech">Photoshop</span>
+                      <span class="tag-tech">Color Systems</span>
+                      <span class="tag-tech">Typography</span>
+                    </div>
+                    
+                    <div class="project-details">
+                      <div class="detail-block">
+                        <span class="detail-label">Challenge</span>
+                        <p class="detail-value">Translating corporate vision and customer personas into a unified, scalable design framework applicable across screen sizes and print assets.</p>
+                      </div>
+                      <div class="detail-block">
+                        <span class="detail-label">Solution</span>
+                        <p class="detail-value">Crafted complete brand identity packages for clients containing vector logos, custom styling color pallets, visual layouts, and detailed typography guidelines.</p>
+                      </div>
+                      <div class="detail-block">
+                        <span class="detail-label">Outcome</span>
+                        <p class="detail-value">Successfully deployed marketing kits, collateral designs, and social assets that increased client engagement rates across digital campaigns.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT SCENE -->
+      <section id="contact" class="scene-section">
+        <div class="container scene-container scroll-container-y">
+          <div class="section-header">
+            <span class="section-tag font-mono">05 // ENGAGE</span>
+            <h2 class="section-title">Get In Touch</h2>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-info">
+              <h3 class="contact-subtitle">Let's build something remarkable.</h3>
+              <p>
+                I am open to discussions regarding senior Salesforce development roles, UI/UX architecture positions, full-stack design-to-code opportunities, or custom freelance projects.
+              </p>
+              
+              <div class="contact-channels">
+                <div class="channel-card">
+                  <div class="channel-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+                  <div class="channel-details">
+                    <span class="channel-label font-mono">Email</span>
+                    <a href="mailto:rjkriyaz@gmail.com" class="channel-link">rjkriyaz@gmail.com</a>
+                  </div>
+                  <button class="copy-btn" data-copy="rjkriyaz@gmail.com" aria-label="Copy email to clipboard">
+                    <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                    <span class="copy-tooltip">Copy</span>
+                  </button>
+                </div>
+
+                <div class="channel-card">
+                  <div class="channel-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+                  <div class="channel-details">
+                    <span class="channel-label font-mono">Phone</span>
+                    <a href="tel:+919949206700" class="channel-link">+91 9949206700</a>
+                  </div>
+                  <button class="copy-btn" data-copy="+919949206700" aria-label="Copy phone number to clipboard">
+                    <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                    <span class="copy-tooltip">Copy</span>
+                  </button>
+                </div>
+
+                <div class="channel-card">
+                  <div class="channel-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></div>
+                  <div class="channel-details">
+                    <span class="channel-label font-mono">LinkedIn</span>
+                    <a href="https://linkedin.com/in/riyazat-kazarani" target="_blank" rel="noopener noreferrer" class="channel-link">linkedin.com/in/riyazat-kazarani</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="location-badge font-mono">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Located in Hyderabad, Telangana, India</span>
+              </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+              <form id="contact-form" class="contact-form" onsubmit="event.preventDefault(); alert('Message simulation submitted!');">
+                <div class="form-group">
+                  <label for="form-name" class="form-label font-mono">Name / Organization</label>
+                  <input type="text" id="form-name" class="form-input" placeholder="e.g. Acme Corp / Alex Smith" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="form-email" class="form-label font-mono">Email Address</label>
+                  <input type="email" id="form-email" class="form-input" placeholder="name@company.com" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="form-message" class="form-label font-mono">Your Inquiry</label>
+                  <textarea id="form-message" class="form-input form-textarea" placeholder="Hello Riyazat, I'd love to chat about..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                  Send Direct Message
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" x2="11" y1="2" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+              </form>
+            </div>
+          </div>
+          
+          <!-- Footer moved inside final contact panel to avoid scroll clashes -->
+          <footer class="footer-inline">
+            <div class="footer-container">
+              <div class="footer-left">
+                <span class="footer-logo">&lt;/&gt; Riyazat.k</span>
+                <p class="footer-copyright font-mono">&copy; 2026 Riyazat Jaffar Kazarani. Designed & Developed with 3D Scrollytelling.</p>
+              </div>
+              <div class="footer-right">
+                <ul class="footer-links font-mono">
+                  <li><a href="#hero" onclick="window.scrollTo({top: document.getElementById('track-hero').offsetTop, behavior: 'smooth'}); return false;">Top</a></li>
+                  <li><a href="#about" onclick="window.scrollTo({top: document.getElementById('track-about').offsetTop, behavior: 'smooth'}); return false;">About</a></li>
+                  <li><a href="#skills" onclick="window.scrollTo({top: document.getElementById('track-skills').offsetTop, behavior: 'smooth'}); return false;">Skills</a></li>
+                  <li><a href="#experience" onclick="window.scrollTo({top: document.getElementById('track-experience').offsetTop, behavior: 'smooth'}); return false;">History</a></li>
+                  <li><a href="#projects" onclick="window.scrollTo({top: document.getElementById('track-projects').offsetTop, behavior: 'smooth'}); return false;">Work</a></li>
+                </ul>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
